@@ -30,8 +30,15 @@ class BTvertex:
 # ... tree rooted at vertex v to the size of that subtree
 # Runtime: O(n)
 def calculate_sizes(v):
-    # Your code goes here
-    pass
+    if not v:
+        return 0
+    
+    if not v.left and not v.right:
+        v.size = 1
+    else:
+        v.size = calculate_sizes(v.left) + calculate_sizes(v.right)
+    
+    return v.size
 
 #
 # Problem 1c
